@@ -4,7 +4,6 @@ const Home = () => {
   return (
     <View>
       <Text>!!Hello World!!</Text>
-      <Text>Home</Text>
     </View>
   )
 }
