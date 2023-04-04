@@ -8,7 +8,7 @@ const Home = () => {
       
 
       
-        <LogIn/>
+        <Start/>
       
     </View>
   )
