@@ -5,11 +5,7 @@ import LogIn from './pages/log-in'
 const Home = () => {
   return (
     <View>
-      
-
-      
-        <Start/>
-      
+      <Start/>
     </View>
   )
 }
