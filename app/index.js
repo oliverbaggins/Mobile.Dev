@@ -1,9 +1,11 @@
 import { View, Text } from 'react-native';
 
+import LogIn from './pages/log-in'
+
 const Home = () => {
   return (
     <View>
-      <Text>!!Hello World!!</Text>
+      <Start/>
     </View>
   )
 }
