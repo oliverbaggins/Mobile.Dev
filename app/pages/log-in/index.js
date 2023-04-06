@@ -12,6 +12,7 @@ export default function LogIn(){
     const [number, onChangeNumber] = React.useState('Insira sua senha aqui...');
 
     return (
+        <LinearGradient colors={['#001242', '#123B6B', '#276697']}>
         <View style={styles.container}>
             
             <Text style={styles.textEntrar}>Entrar</Text>
@@ -73,13 +74,17 @@ export default function LogIn(){
             
             
         </View>
+
+        </LinearGradient>
+
+
     
     )
 }
 
 const styles = StyleSheet.create({
     container:{
-        backgroundColor: '#001242',
+        //backgroundColor: '#001242',
         with: '100%',
         height: '100%'
         
