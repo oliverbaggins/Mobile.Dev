@@ -4,7 +4,6 @@ import {Text, View, StyleSheet,Image, TouchableOpacity, TextInput, SafeAreaView,
 
 import { LinearGradient } from 'expo-linear-gradient';
 
-
 import back from "../../../assets/back.png"
 
 export default function CadNome(){
