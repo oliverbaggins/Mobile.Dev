@@ -15,45 +15,45 @@ export default function CadNome(){
         
         <SafeAreaView  style={styles.container_all}>
             <LinearGradient colors={['#001242', 'rgba(28, 181, 247, 0.7)']}>
-            <View style={styles.container}>
-            <ScrollView > 
-
-                <View style={{marginTop: 20}}>
-                    <TouchableOpacity style={{width:40}}>
-                        <Image source={back}/> 
-                    </TouchableOpacity> 
+                <View style={styles.container}>
+                    <ScrollView > 
+            
+                        <View style={{marginTop: 20}}>
+                            <TouchableOpacity style={{width:40}}>
+                                <Image source={back}/> 
+                            </TouchableOpacity> 
+                        </View>
+            
+            
+                        <View style={{marginTop: 40, marginBottom:40}}>
+                            <Text style={styles.header_text}>Como podemos te{'\n'}chamar?</Text>
+                        </View>
+            
+            
+                        <Text style={styles.label}>Nome</Text>
+                        <View style={styles.input_container}>
+                            <TextInput
+                            value=''
+                            style={styles.input}
+                            />
+                        </View>
+            
+                        <Text style={styles.label}>Sobrenome</Text>
+                        <View style={styles.input_container}>
+                            <TextInput
+                            value=''
+                            style={styles.input}
+                            />
+                        </View>
+            
+                        <TouchableOpacity style={{marginTop:140}}>
+                            <LinearGradient style={styles.button} colors={['#00B2FF', '#1F8EFB', '#3B6FF8']}>
+                                    <Text style={styles.buttonEnter}>Continuar</Text>
+                            </LinearGradient>
+                        </TouchableOpacity>
+            
+                    </ScrollView>
                 </View>
-
-
-                <View style={{marginTop: 40, marginBottom:40}}>
-                    <Text style={styles.header_text}>Como podemos te{'\n'}chamar?</Text>
-                </View>
-
-
-                <Text style={styles.label}>Nome</Text>
-                <View style={styles.input_container}>
-                    <TextInput
-                    value=''
-                    style={styles.input}
-                    />
-                </View>
-
-                <Text style={styles.label}>Sobrenome</Text>
-                <View style={styles.input_container}>
-                    <TextInput
-                    value=''
-                    style={styles.input}
-                    />
-                </View>
-
-                <TouchableOpacity style={{marginTop:140}}>
-                    <LinearGradient style={styles.button} colors={['#00B2FF', '#1F8EFB', '#3B6FF8']}>
-                            <Text style={styles.buttonEnter}>Continuar</Text>
-                    </LinearGradient>
-                </TouchableOpacity>
-
-            </ScrollView>
-            </View>
             </LinearGradient>
         </SafeAreaView>
     )
