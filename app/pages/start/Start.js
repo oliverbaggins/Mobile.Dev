@@ -1,18 +1,31 @@
 import {Text, View, StyleSheet,Image, TouchableOpacity} from 'react-native'
-
+import { Stack, useRouter, Link } from 'expo-router'
 import { LinearGradient } from 'expo-linear-gradient';
 
 import logo from "../../../assets/Logo.png"
 
 export default function Start(){
+    
+    const router = useRouter();
+    
+    function handleNavigation() {
+        router.push('../pages/log-in/LogIn')
+    }
+
     return (
         <View style={styles.container}>
-                        
+             <Stack.Screen 
+                options={{
+                    headerShadowVisible: false,
+                    headerShown: false,
+                    headerTitle: ""
+                }}
+            />         
             <View >
                 <Image style={styles.image_logo} source={logo}/>
             </View>
-
-            <TouchableOpacity>
+        
+            <TouchableOpacity onPress={handleNavigation}>
                 <LinearGradient style={styles.button} colors={['#00B2FF', '#1F8EFB', '#3B6FF8']}>
                         <Text style={styles.buttonEnter}>Entrar</Text>
                 </LinearGradient>

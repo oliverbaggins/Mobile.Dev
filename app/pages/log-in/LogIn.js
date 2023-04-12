@@ -5,12 +5,15 @@ import {Text, View, StyleSheet,Image, TouchableOpacity, TextInput, SafeAreaView}
 import { LinearGradient } from 'expo-linear-gradient';
 
 import buttonLogin from "../../../assets/buttonlogin.png"
+import { useRouter } from 'expo-router';
 
 export default function LogIn(){
 
+    const router  = useRouter();
+
     const [text, onChangeText] = React.useState('Insira seu email aqui...');
     const [number, onChangeNumber] = React.useState('Insira sua senha aqui...');
-
+    
     return (
         <View style={styles.container}>
             
