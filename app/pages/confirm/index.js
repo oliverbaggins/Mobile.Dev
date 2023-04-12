@@ -5,9 +5,9 @@ import {Text, View, StyleSheet,Image, TouchableOpacity, TextInput, SafeAreaView,
 import { LinearGradient } from 'expo-linear-gradient';
 
 import back from "../../../assets/back.png"
-import quase from "../../../assets/quase.png"
+import confirm from "../../../assets/confirm.png"
 
-export default function Quase(){
+export default function Confirm(){
 
     return (
         
@@ -23,8 +23,8 @@ export default function Quase(){
                             </TouchableOpacity> 
                         </View>
 
-                        <View style={styles.quaseimg}>
-                            <Image source={quase} />
+                        <View style={styles.confirmimg}>
+                            <Image source={confirm} />
                         </View>
 
 
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
         padding:20,
     },
 
-    quaseimg:{
+    confirmimg:{
         marginTop:40,
         marginBottom:40,
         alignItems:'center',
