@@ -1,16 +1,38 @@
-<<<<<<< HEAD
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
+
+
+import LogIn from './pages/log-in'
+import CadNome from './pages/cad-nome';
+import Quase from './pages/quase'
+import Confirm from './pages/confirm'
 import { Stack } from 'expo-router';
-import Start from '../app/pages/start/Start';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { ImagePickerIOS } from 'react-native';
+//import LogIn from './pages/log-in'
+//import Start from './pages/start'
+import AddRemedy from './pages/home';
 
-export default function Home() {
+
+const Home = () => {
+  
   return (
-    <View> 
-      <Start />
+
+    <View>
+
+      {/* <Start /> */}
+
+      {/* <LogIn /> */}
+
+      {/*  <CadNome /> */}
+      <AddRemedy />
+
+      {/* <Quase />*/}
+      {/* <Confirm /> */}
+
     </View>
 
   )
 }
 
+
+export default Home;
