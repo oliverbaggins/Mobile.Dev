@@ -9,28 +9,11 @@ const Home = () => {
   return (
 
     <View>
-<<<<<<< HEAD
       <Start />
-=======
-
-      {/* <Start /> */}
-
-      {/* <LogIn /> */}
-
-      {/*  <CadNome /> */}
-      <AddRemedy />
-
-      {/* <Quase />*/}
-      {/* <Confirm /> */}
-
->>>>>>> e68c9989fb0eb5ab07932516fe3929f211b45292
     </View>
 
   )
 }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> e68c9989fb0eb5ab07932516fe3929f211b45292
 export default Home;
