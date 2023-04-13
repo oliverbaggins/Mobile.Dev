@@ -1,19 +1,22 @@
 import React from 'react';
 
 import {Text, View, StyleSheet,Image, TouchableOpacity, TextInput, SafeAreaView} from 'react-native'
-
+import { Stack, useRouter } from 'expo-router'
 //import { LinearGradient } from 'expo-linear-gradient';
 
 import logoperfil from "../../../assets/logoperfil.png"
 import bannerTime from "../../../assets/bannerhorario.png"
 import menuOverlay from "../../../assets/menuOverlay.png"
-
 import ScheduleList from './components/schedulelist'
 //import { FlatList } from 'react-native-gesture-handler';
 
 
 export default function AddRemedy(){
 
+    const router = useRouter();
+    function handleNavigation() {
+        router.push('../add-re/Add_re')
+    }
     
 
     return (
@@ -43,7 +46,7 @@ export default function AddRemedy(){
 
 
             <View style={styles.scheduleTime}>{/*BOTÃO AGENDAMENTO DE NOVOS HORÁRIOS */}
-                <TouchableOpacity>
+                <TouchableOpacity onPress={handleNavigation}>
                     <Image style={styles.bannerTime} source={bannerTime}/> 
                 </TouchableOpacity>
             </View>
@@ -55,30 +58,15 @@ export default function AddRemedy(){
                     <Text style={styles.textScheduledPill}>Seus horários</Text>
                 </View>
 
-
-                <View style={styles.pills}>
-        
-                        
+                <View style={styles.pills}> 
                             
-                            <ScheduleList/>
-                            
-                        
-                         
-                     
+                    {/*<ScheduleList
+                    />*/}
 
                 </View>
-                
+
             </View>
-
-
-
-            
         </View>
-
-        
-
-
-    
     )
 }
 

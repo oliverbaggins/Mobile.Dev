@@ -11,6 +11,10 @@ export default function LogIn(){
 
     const router  = useRouter();
 
+    function handleNavigation() {
+        router.push('../home/AddRemedy')
+    }
+
     const [text, onChangeText] = React.useState('Insira seu email aqui...');
     const [number, onChangeNumber] = React.useState('Insira sua senha aqui...');
     
@@ -52,7 +56,7 @@ export default function LogIn(){
             
             
 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={handleNavigation}>
                 <LinearGradient style={styles.button} colors={['#00B2FF', '#1F8EFB', '#3B6FF8']}>
                         <Text style={styles.buttonEnter}>Entrar</Text>
                 </LinearGradient>

@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+
 import {
   FlatList,
   SafeAreaView,
@@ -7,6 +8,7 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
+
 
 const DATA = [
   {
@@ -56,8 +58,6 @@ const ScheduleList = () => {
         onPress={() => setSelectedId(item.id)}
         backgroundColor={backgroundColor}
         textColor={color}
-        
-        
       />
     );
   };
@@ -69,8 +69,6 @@ const ScheduleList = () => {
         renderItem={renderItem}
         keyExtractor={item => item.id}
         extraData={selectedId}
-        
-        
       />
     </SafeAreaView>
   );
