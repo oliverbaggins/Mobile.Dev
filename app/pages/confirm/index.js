@@ -29,8 +29,8 @@ export default function Confirm(){
 
 
                         <View style={{alignItems:'center'}}>
-                            <Text style={styles.header_text}>Quase lá....</Text>
-                            <Text style={styles.midle_text}>Agora só precisamos coletar alguns dados adicionais para melhor atender você!</Text>
+                            <Text style={styles.header_text}>Tudo certo!</Text>
+                            <Text style={styles.midle_text}>Você já pode usar nosso aplicativo</Text>
                         </View>
 
 

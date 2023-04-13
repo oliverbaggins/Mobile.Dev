@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-import { View, Text } from 'react-native';
-import { Stack } from 'expo-router';
-import Start from '../app/pages/start/Start';
-
-import { ImagePickerIOS } from 'react-native';
-
-export default function Home() {
-  return (
-    <View> 
-      <Start />
-=======
 import { View, Text, ScrollView } from 'react-native';
 
 
@@ -41,14 +29,10 @@ const Home = () => {
       {/* <Quase />*/}
       {/* <Confirm /> */}
 
->>>>>>> 05e937c612b45cd40d0e66cffdec14331c468194
     </View>
 
   )
 }
 
-<<<<<<< HEAD
-=======
 
 export default Home;
->>>>>>> 05e937c612b45cd40d0e66cffdec14331c468194
