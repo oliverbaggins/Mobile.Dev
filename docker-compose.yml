@@ -1,14 +1,20 @@
-version: "3"
+version: "3.3"
 
 services:
   app:
+    image: app:later
     build: .
-    command: expo start
     ports:
-      - "3000:3000"
+      - 1900:1900
+      - 1901:1901
+      - 1902:1902
+      - 1906:1906
+    environment:
+      - NODE_ENV=dev
+      - EXPO_DEVTOOLS_LISTEN_ADDRESS=0.0.0.0
+      - REACT_NATIVE_PACKAGER_HOSTNAME=192.168.1.18
     volumes:
-      - .:/usr/app
-
+      - ./app:/app/
 
 
 
