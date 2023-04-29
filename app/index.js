@@ -3,13 +3,20 @@ import { Stack } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Start from '../app/pages/start/Start'
 
+import CadNome from './pages/cad-nome/index'
+import InsertEmail from './pages/insert-email/index';
+
 
 const Home = () => {
   
   return (
 
     <View>
-      <Start />
+      {/* <Start /> */}
+
+
+      {/* <InsertEmail /> */}
+      <CadNome />
     </View>
 
   )
