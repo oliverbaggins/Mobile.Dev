@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {Text, View, StyleSheet,Image, TouchableOpacity, TextInput, SafeAreaView, ScrollView, VirtualizedList} from 'react-native'
-import { Stack } from 'expo-router'
+import { Stack, useRouter, Link } from 'expo-router'
 import { LinearGradient } from 'expo-linear-gradient';
 
 import back from "../../../assets/back.png"
+import olho from "../../../assets/olhosenha.png"
 
-export default function InsertEmail(){
+export default function InsertPassword(){
+
+//     const [phonemic, setphonemic] = useState();
+//   const Phone_mic_button = ({ phone_mic_clicked }) => {
+//       if (phone_mic_clicked) {
+//           return <Image  source={olho} />;
+//       } else {
+//           return <Image  source={olho} />;
+//       }
+//   }
 
     return (
 
@@ -29,33 +39,40 @@ export default function InsertEmail(){
                         </View>
             
                         <View style={{marginTop: 40, marginBottom:40}}>
-                            <Text style={styles.header_text}>Insira seu endereço de{'\n'}email</Text>
+                            <Text style={styles.header_text}>Insira sua senha{'\n'}</Text>
                         </View>
             
-                        <Text style={styles.label}>Email</Text>
-                        <View style={styles.input_container}>
-                            <TextInput
-                            style={styles.input}
-                            placeholder='Insira seu email aqui...'
-                            placeholderTextColor={'rgba(255, 255, 255, 0.75)'}
-                            />
+                        <Text style={styles.label}>Senha</Text>
+                        
+                        <View style={{marginBottom:120}}>
+                            <View style={styles.input_container}>
+                                <TextInput
+                                    style={styles.input}
+                                    placeholder='Insira sua senha aqui...'
+                                    placeholderTextColor={'rgba(255, 255, 255, 0.75)'}
+                                    />
+                                <TouchableOpacity style={{marginLeft:5}}>
+                                    <Image source={olho}/>
+                                </TouchableOpacity>
+
+                                {/* <TouchableOpacity onPress={() => { setphonevolumeup(!phonevolumeup) }}>
+                                    <Phone_volume_up_button phone_volume_up_clicked={phonevolumeup} />
+                                </TouchableOpacity> */}
+                            </View>
+
+                            <View style={styles.rules}>
+                                <Text style={{color:'#fff'}}>Sua senha deve conter pelo menos 
+                                    <Text style={{fontWeight:700}}> 6 caracteres, </Text>
+                                    incluindo
+                                    <Text style={{fontWeight:700}}> letras e números.</Text>
+                                </Text>
+                                
+                            </View>
                         </View>
+                        
 
                         
                         <View style={styles.containerp1}>
-                            <Text style={{color:'#fff'}}>Ao se registrar você está aceitando nossos</Text>
-
-                            <View style={{ flexDirection:'row'}}>
-                                <TouchableOpacity style={{borderBottomWidth:1, borderBottomColor:'#fff'}}>
-                                    <Text style={{color:'#fff'}}>Termos de Uso</Text>
-                                </TouchableOpacity>
-                                <Text style={{color:'#fff'}}> e </Text>
-                                <TouchableOpacity style={{borderBottomWidth:1, borderBottomColor:'#fff'}}>
-                                    <Text style={{color:'#fff'}}>Politicas de Privacidade</Text>
-                                </TouchableOpacity>
-                                <Text style={{color:'#fff'}}>.</Text>
-                            </View>
-                            
                             <TouchableOpacity style={styles.buttonTouch}>
                                 <LinearGradient style={styles.button} colors={['#00B2FF', '#1F8EFB', '#3B6FF8']}>
                                     <Text style={styles.buttonEnter}>Continuar</Text>
@@ -97,9 +114,11 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         height: 50,
         alignItems:"center",
-        marginBottom:16,
         color:'#fff',
-        marginBottom:150
+        marginBottom:7,
+        flexDirection:'row',
+        paddingLeft:15,
+        paddingRight:10
     },
 
     input:{
@@ -107,6 +126,11 @@ const styles = StyleSheet.create({
         width:"90%",
         height:"100%",
         
+    },
+
+    rules:{
+        flexDirection:'row',
+        maxWidth:300
     },
 
     containerp1:{
