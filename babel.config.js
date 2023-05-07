@@ -6,6 +6,16 @@ module.exports = function (api) {
       "@babel/plugin-proposal-export-namespace-from",
       "react-native-reanimated/plugin",
       require.resolve("expo-router/babel"),
+      [
+        '@babel/plugin-transform-runtime',
+        {
+            absoluteRuntime: false,
+            corejs: false,
+            helpers: true,
+            regenerator: true,
+            version: '7.0.0-beta.0',
+        },
+    ]
     ],
   };
 };

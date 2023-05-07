@@ -1,22 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import {Text, View, StyleSheet,Image, TouchableOpacity, TextInput, SafeAreaView} from 'react-native'
+import {Text, View, StyleSheet,Image, TouchableOpacity, TextInput, SafeAreaView, FlatList} from 'react-native'
 import { Stack, useRouter } from 'expo-router'
+
+
+
+
 //import { LinearGradient } from 'expo-linear-gradient';
 
 import logoperfil from "../../../assets/logoperfil.png"
 import bannerTime from "../../../assets/bannerhorario.png"
+import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import menuOverlay from "../../../assets/menuOverlay.png"
-import ScheduleList from './components/schedulelist'
+
+
+
+
 //import { FlatList } from 'react-native-gesture-handler';
 
+ 
+  
+import DATALIST from './components/datalist';  
 
-export default function AddRemedy(){
+
+export default function AddRemedy({navigation}){
 
     const router = useRouter();
     function handleNavigation() {
         router.push('../add-re/Add_re')
     }
+
+
+    
+      
     
 
     return (
@@ -37,10 +54,15 @@ export default function AddRemedy(){
                 </View>
 
                 <View style={styles.menuOverlay}>
+                    
+                    
                     <TouchableOpacity>
-                        <Image style={styles.menuOverlay} source={menuOverlay}/>
-                    </TouchableOpacity> 
+                        <Image style={styles.menuOverlay} source={menuOverlay}/> 
+                        </TouchableOpacity>
+                    
+                    
                 </View>
+       
 
             </View>
 
@@ -60,8 +82,28 @@ export default function AddRemedy(){
 
                 <View style={styles.pills}> 
                             
-                    {/*<ScheduleList
-                    />*/}
+                    <View style={styles.list}>
+                        <FlatList
+                        data = {DATALIST}
+                        renderItem={({item}) => (
+                            <TouchableOpacity style={styles.item} >
+                                
+                                <View> 
+                                   
+                                    
+                                        <Text style={styles.title}>{item.title} <Text style={styles.time}>{item.time}</Text></Text>
+                                    
+                                    
+                                    
+                                </View>
+                                
+                            </TouchableOpacity>
+                            
+                        )}
+                        keyExtractor={item => item.id}
+                        
+                        />
+                    </View>
 
                 </View>
 
@@ -137,8 +179,23 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
         
         
-    }
-
+    },
+   
+    item: {
+        backgroundColor: '#BFE3F2',
+        padding: 20,
+        marginVertical: 8,
+        marginHorizontal: 1,
+        width: 370,
+        borderRadius: 10,
+        borderBottomRightRadius: 30
+      },
+      title: {
+        fontSize: 20,
+        fontWeight: 700,
+        
+      },
+      
     
    
 

@@ -4,7 +4,7 @@
     "web": {
       "bundler": "metro"
     },
-    "name": "Mobile.Dev",
-    "slug": "Mobile.Dev"
+    "name": "Mobile Dev",
+    "slug": "Mobile-Dev"
   }
 }
