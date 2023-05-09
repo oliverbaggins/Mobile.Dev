@@ -7,6 +7,7 @@ import CadNome from './pages/cad-nome/index';
 import InsertEmail from './pages/insert-email/index';
 import InsertPassword from './pages/insert-password/index';
 import ConfirmPassword from './pages/confirm-password/index';
+import CriarLembrete from './pages/criar_lembrete/criar_lembrete';
 
 
 const Home = () => {
@@ -20,7 +21,8 @@ const Home = () => {
       {/* <InsertEmail /> */}
       {/* <CadNome /> */}
       {/* <InsertPassword /> */}
-      <ConfirmPassword />
+      {/* <ConfirmPassword /> */}
+      <CriarLembrete />
     </View>
 
   )
