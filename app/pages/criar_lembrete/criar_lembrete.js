@@ -1,25 +1,36 @@
 import React, { useEffect, useState } from 'react';
-import {Text, View, StyleSheet,Image, TouchableOpacity, TextInput, SafeAreaView, ScrollView, VirtualizedList} from 'react-native'
+import {Text, View, StyleSheet,Image, TouchableOpacity, TextInput, SafeAreaView, ScrollView, VirtualizedList, Button} from 'react-native'
 import { Stack, useRouter, Link } from 'expo-router'
 import { LinearGradient } from 'expo-linear-gradient';
 import { Picker } from '@react-native-picker/picker';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 import back from "../../../assets/back.png"
 import calendario from "../../../assets/calendario.png"
 import Alarm from "../../../assets/Alarm.png"
 
 export default function CriarLembrete(){
-
-//     const [phonemic, setphonemic] = useState();
-//   const Phone_mic_button = ({ phone_mic_clicked }) => {
-//       if (phone_mic_clicked) {
-//           return <Image  source={olho} />;
-//       } else {
-//           return <Image  source={olho} />;
-//       }
-//   }
-
+    
 const [frequencia, setFrequencia] = useState('a cada 4 horas');
+
+const [inicio, setInicio] = useState(new Date())
+const [termino, setTermino] = useState(new Date())
+const [showInicio, setShowInicio] = useState(false)
+const [showTermino, setShowTermino] = useState(false)
+const onChange1 = (inicio, datainicio) => {
+    setInicio(datainicio);
+    setShowInicio(false);
+};
+const onChange2 = (termino, datatermino) => {
+    setTermino(datatermino);
+    setShowTermino(false);
+};
+const showDatepicker1 = () => {
+    setShowInicio(true);
+};
+const showDatepicker2 = () => {
+    setShowTermino(true);
+};
 
     return (
 
@@ -52,27 +63,47 @@ const [frequencia, setFrequencia] = useState('a cada 4 horas');
                         </View>
 
                         <View style={{flexDirection:'row', maxWidth:'100%'}}>
+
+                            
                             <View style={{flex:1}}>
                                 <Text style={styles.label}>Data de Início</Text>
-                                <View style={styles.input_container_date}>
-                                    <Image source={calendario} style={{marginLeft:8, marginRight:12}} /> 
-                                    <TextInput
-                                        style={styles.input}
-                                        placeholder='22/03/2023'
-                                        placeholderTextColor={'rgba(255, 255, 255, 0.75)'}
+                                <TouchableOpacity onPress={showDatepicker1} >
+                                    <View style={styles.input_container_date}>
+                                        <Image source={calendario} style={{marginLeft:8, marginRight:12}} /> 
+                                        <Text style={{color:'white'}}>{inicio.toLocaleDateString()}</Text>
+                                    </View>
+                                </TouchableOpacity>
+                                {showInicio && (
+                                    <DateTimePicker
+                                    testID='dateTimePicker1'
+                                    value={inicio}
+                                    mode={'date'}
+                                    is24Hour={true}
+                                    display="default"
+                                    onChange={onChange1} 
                                     />
-                                </View>
+                                )}
                             </View>
+
                             <View style={{marginLeft:'5%', flex:1}}>
                                 <Text style={styles.label}>Data de Termino</Text>
-                                <View style={styles.input_container_date}>
-                                    <Image source={calendario} style={{marginLeft:8, marginRight:12}} /> 
-                                    <TextInput
-                                        style={styles.input}
-                                        placeholder='22/03/2023'
-                                        placeholderTextColor={'rgba(255, 255, 255, 0.75)'}
+                                <TouchableOpacity onPress={showDatepicker2} >
+                                    <View style={styles.input_container_date}>
+                                        <Image source={calendario} style={{marginLeft:8, marginRight:12}} /> 
+                                        <Text style={{color:'white'}}>{termino.toLocaleDateString()}</Text>
+                                    </View>
+                                </TouchableOpacity>
+                                {showTermino && (
+                                    <DateTimePicker
+                                    testID='dateTimePicker2'
+                                    value={termino}
+                                    mode={'date'}
+                                    is24Hour={true}
+                                    display="default"
+                                    onChange={onChange2} 
+                                    
                                     />
-                                </View>
+                                )}
                             </View>
                         </View>
 
