@@ -8,9 +8,10 @@ export default function Start(){
     
     const router = useRouter();
     
-    function handleNavigation() {
+    function LogIn() {
         router.push('../pages/log-in/LogIn')
     }
+
 
     return (
         <View style={styles.container}>
@@ -25,13 +26,13 @@ export default function Start(){
                 <Image style={styles.image_logo} source={logo}/>
             </View>
         
-            <TouchableOpacity onPress={handleNavigation}>
+            <TouchableOpacity onPress={LogIn}>
                 <LinearGradient style={styles.button} colors={['#00B2FF', '#1F8EFB', '#3B6FF8']}>
                         <Text style={styles.buttonEnter}>Entrar</Text>
                 </LinearGradient>
             </TouchableOpacity>
 
-            <TouchableOpacity  >
+            <TouchableOpacity>
                 <LinearGradient style={styles.button} colors={['#00B2FF', '#1F8EFB', '#3B6FF8']}>
                         <Text style={styles.buttonCreateAccount}>Crie sua conta</Text>
                 </LinearGradient>

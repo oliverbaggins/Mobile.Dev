@@ -15,14 +15,14 @@ const Home = () => {
   return (
 
     <View>
-      {/* <Start /> */}
+      <Start />
 
 
       {/* <InsertEmail /> */}
       {/* <CadNome /> */}
       {/* <InsertPassword /> */}
       {/* <ConfirmPassword /> */}
-      <CriarLembrete />
+      {/* <CriarLembrete /> */}
     </View>
 
   )
