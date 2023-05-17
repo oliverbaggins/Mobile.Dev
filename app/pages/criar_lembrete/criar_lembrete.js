@@ -32,6 +32,18 @@ const showDatepicker2 = () => {
     setShowTermino(true);
 };
 
+
+const [horario, setHorario] = useState(new Date())
+const [showHorario, setShowHorario] = useState(false)
+const onChange3 = (horario, datahorario) => {
+    setHorario(datahorario);
+    setShowHorario(false);
+};
+const showDatepicker3 = () => {
+    setShowHorario(true);
+};
+
+
     return (
 
         <SafeAreaView>
@@ -56,7 +68,7 @@ const showDatepicker2 = () => {
                         <Text style={styles.label}>Remédio</Text>
                         <View style={styles.input_container}>
                             <TextInput
-                                style={styles.input}
+                                style={{width:"100%"}}
                                 placeholder='Ex: Dipirona'
                                 placeholderTextColor={'rgba(255, 255, 255, 0.75)'}
                             />
@@ -109,12 +121,22 @@ const showDatepicker2 = () => {
 
                         <Text style={styles.label}>Horário</Text>
                         <View style={styles.input_container}>
-                            <Image source={Alarm} style={{marginRight:12}} /> 
-                            <TextInput
-                                style={styles.input}
-                                placeholder='08:20'
-                                placeholderTextColor={'rgba(255, 255, 255, 0.75)'}
-                            />
+                            <TouchableOpacity onPress={showDatepicker3} style={{width:"100%"}}>
+                                    <View style={styles.input_container_horario}>
+                                        <Image source={Alarm} style={{marginRight:12}} />
+                                        <Text style={{color:'white'}}>{`${horario.getHours()}:${horario.getMinutes().toString().padStart(2, '0')}`}</Text>
+                                    </View>
+                            </TouchableOpacity>
+                            {showHorario && (
+                                    <DateTimePicker
+                                    testID='dateTimePicker3'
+                                    value={horario}
+                                    mode={'time'}
+                                    is24Hour={true}
+                                    display="default"
+                                    onChange={onChange3} 
+                                    />
+                                )}
                         </View>
 
                         <Text style={styles.label}>Frequência:</Text>
@@ -124,6 +146,7 @@ const showDatepicker2 = () => {
                             style={styles.picker} 
                             selectedValue={frequencia} 
                             onValueChange={(itemValue, itemIndex) => setFrequencia(itemValue)}
+                            
                             >
                                 <Picker.Item label="A cada 4 horas" value="a cada 4 horas" />
                                 <Picker.Item label="A cada 6 horas" value="a cada 6 horas" />
@@ -164,7 +187,7 @@ const styles = StyleSheet.create({
 
     label2:{
         fontSize: 16,
-        marginBottom:10,
+        marginBottom:80,
         borderColor: "rgba(0, 178, 255, 0.5)",
         borderWidth: 1,
         backgroundColor: "rgba(0, 178, 255, 0.1)",
@@ -192,11 +215,7 @@ const styles = StyleSheet.create({
         marginBottom:25,
     },
 
-    input:{
-        color: '#fff',
-        height:"100%",
-        minWidth:'100%'
-    },
+
 
     input_container_date:{
         borderColor: "rgba(0, 178, 255, 0.5)",
@@ -209,6 +228,14 @@ const styles = StyleSheet.create({
         marginBottom:7,
         flexDirection:'row',
         marginBottom:25,
+    },
+
+    input_container_horario:{
+        height: 50,
+        alignItems:"center",
+        color:'#fff',
+        flexDirection:'row',
+        width:"100%",
     },
 
     containerp1:{
