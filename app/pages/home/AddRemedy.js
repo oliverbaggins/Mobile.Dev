@@ -1,12 +1,13 @@
 import React from 'react';
-
-import {Text, View, StyleSheet,Image, TouchableOpacity, TextInput, SafeAreaView} from 'react-native'
+import { LinearGradient } from 'expo-linear-gradient';
+import {Text, View, StyleSheet,Image, TouchableOpacity, TextInput, SafeAreaView, ScrollView} from 'react-native'
 import { Stack, useRouter } from 'expo-router'
 //import { LinearGradient } from 'expo-linear-gradient';
 
 import logoperfil from "../../../assets/logoperfil.png"
 import bannerTime from "../../../assets/bannerhorario.png"
-import menuOverlay from "../../../assets/menuOverlay.png"
+import relogio from "../../../assets/relogiocortado.png"
+import menu from "../../../assets/menu.png"
 import ScheduleList from './components/schedulelist'
 //import { FlatList } from 'react-native-gesture-handler';
 
@@ -20,117 +21,120 @@ export default function AddRemedy(){
     
 
     return (
-        
-        <View style={styles.container}>
+
+
+        <SafeAreaView>
+            <Stack.Screen 
+                options={{
+                    headerShadowVisible: false,
+                    headerShown: false,
+                    headerTitle: ""
+                }}
+            />
+
+            <LinearGradient colors={['#001242', 'rgba(28, 181, 247, 0.7)']}>
+                <View style={styles.container}>
+                    <ScrollView contentContainerStyle={{flexGrow: 1}}> 
+
+                        <View style={styles.containerHeader}>
+
+                            <View style={{flexDirection:"row"}}>
+                                <View style={{justifyContent:"center"}}>
+                                    <Image source={logoperfil}/> 
+                                </View>
+
+                                <View style={{justifyContent:"center", marginLeft:8}}>
+                                    <Text style={styles.textPerfil}>Olá, Carlos!</Text>
+                                </View>
+                            </View>
+
+                            <View>
+                                <TouchableOpacity style={styles.menu}>
+                                    <Image source={menu}/>
+                                    <Text style={{color:"#fff", marginLeft:3}}>Menu</Text>
+                                </TouchableOpacity> 
+                            </View>
+
+                        </View>
+                                    
+                                    
+                        
+                        <TouchableOpacity onPress={handleNavigation} style={styles.addremedy}>
+                            <View>
+                                <Text style={{color:"#fff", fontSize:20, fontWeight:700}}>Clique aqui</Text>
+                                <Text style={{color:"#fff", fontSize:16, fontWeight:700, marginTop:16}}>Para agendar{'\n'}novos horários</Text>
+                            </View>
+                            <Image source={relogio}/> 
+                        </TouchableOpacity>
+                        
+                                    
+                                    
+                        <View>
+                                    
+                            <View>
+                                <Text style={{fontWeight: 700, fontSize: 23, color:"#fff", marginTop:40}}>Seus horários</Text>
+                            </View>
+
+                            <View style={styles.pills}> 
+
+                                {/* <ScheduleList
+                                /> */}
+
+                            </View>
+                        
+                        </View>
+                        
 
             
-            <View style={styles.containerHeader}>{/*HEADER PROFILE E MENU */}
-
-                <View style={styles.perfil}>
-                    <View>
-                        <Image style={styles.logoPerfil} source={logoperfil}/> 
-                    </View>
-
-                    <View>
-                        <Text style={styles.textPerfil}>Olá, Carlos!</Text>
-                    </View>
+                    </ScrollView>
                 </View>
+            </LinearGradient>
+        </SafeAreaView>
 
-                <View style={styles.menuOverlay}>
-                    <TouchableOpacity>
-                        <Image style={styles.menuOverlay} source={menuOverlay}/>
-                    </TouchableOpacity> 
-                </View>
-
-            </View>
-
-
-            <View style={styles.scheduleTime}>{/*BOTÃO AGENDAMENTO DE NOVOS HORÁRIOS */}
-                <TouchableOpacity onPress={handleNavigation}>
-                    <Image style={styles.bannerTime} source={bannerTime}/> 
-                </TouchableOpacity>
-            </View>
-
-
-            <View style={styles.scheduledPill}>{/*LISTA COM OS AGENDAMENTOS */}
-
-                <View>
-                    <Text style={styles.textScheduledPill}>Seus horários</Text>
-                </View>
-
-                <View style={styles.pills}> 
-                            
-                    {/*<ScheduleList
-                    />*/}
-
-                </View>
-
-            </View>
-        </View>
     )
 }
 
 const styles = StyleSheet.create({
     container:{
-        
-        backgroundColor: '#F0F0F0',
-        with: '100%',
-        height: '100%'
-        
+        width:'100%',
+        height:'100%',
+        padding:20,
     },
 
     containerHeader:{
-        
-        flexWrap: 'wrap',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginTop: 10
-    },
-
-    perfil:{
-        flexDirection: 'row',
-        marginLeft: '5%',
-       
-    },
-
-    logoPerfil:{
-        width: 45,
-        height: 45
+        marginTop: 25
     },
 
     textPerfil:{
+        color:"#fff",
         fontWeight: 700,
-        marginTop: '9%',
-        marginLeft: '10%',
         fontSize: 17
     },
 
-    menuOverlay:{
-        marginRight: '5%',
-        width: 91,
-        height: 40,
-        
+    menu:{
+        height:40, 
+        backgroundColor:"rgba(36, 121, 175, 1)",
+        flexDirection:"row",
+        alignItems:"center",
+        paddingRight:16,
+        paddingLeft:16,
+        borderRadius:8
     },
 
-    scheduleTime:{
-        marginTop: '14%',
-        marginLeft: '2%'
+    addremedy:{
+        width:"100%",
+        backgroundColor:"rgba(36, 121, 175, 1)",
+        flexDirection:"row",
+        borderRadius:8,
+        marginTop:35,
+        paddingTop:28,
+        justifyContent:"space-around",
+        paddingLeft:24,
+        paddingRight:24
     },
 
-    bannerTime:{
-        width: 380,
-        height: 144,
-    },
-
-    scheduledPill:{
-        marginLeft: '3%',
-        marginTop: '10%'
-    },
-
-    textScheduledPill:{
-        fontWeight: 700,
-        fontSize: 23
-    },
 
     pills:{
         

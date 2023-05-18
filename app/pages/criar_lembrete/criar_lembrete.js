@@ -68,7 +68,7 @@ const showDatepicker3 = () => {
                         <Text style={styles.label}>Remédio</Text>
                         <View style={styles.input_container}>
                             <TextInput
-                                style={{width:"100%"}}
+                                style={{width:"100%", color:"#fff"}}
                                 placeholder='Ex: Dipirona'
                                 placeholderTextColor={'rgba(255, 255, 255, 0.75)'}
                             />

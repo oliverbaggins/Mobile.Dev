@@ -19,9 +19,6 @@ export default function LogIn(){
         router.push('../home/AddRemedy')
     }
 
-    const [text, onChangeText] = React.useState('Insira seu email aqui...');
-    const [number, onChangeNumber] = React.useState('Insira sua senha aqui...');
-    
     return (
 
 
@@ -194,7 +191,7 @@ const styles = StyleSheet.create({
         flexDirection:"row"
     },
     buttonEnterg:{
-        fontSize: 20,
+        fontSize: 16,
         marginLeft:18,
         marginRight:24
     },
@@ -215,7 +212,7 @@ const styles = StyleSheet.create({
     },
     buttonEnterf:{
         color: '#fff',
-        fontSize: 20,
+        fontSize: 16,
         marginLeft:8,
         marginRight:16
     },

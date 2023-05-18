@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, Platform, KeyboardAvoidingView, StyleSheet, TextInput } from 'react-native'
+import { View, Text, TouchableOpacity, Platform, KeyboardAvoidingView, StyleSheet, TextInput, SafeAreaView, ScrollView } from 'react-native'
 import { useRouter } from 'expo-router';
 import Remedio from './components/Remedio'
 
@@ -26,7 +26,10 @@ const deleteRe = (index) => {
 }
 
   return (
+
+
     <View style={styles.container}>
+
 
       <View style={styles.reContainer}>
         {
@@ -40,10 +43,12 @@ const deleteRe = (index) => {
         }
       </View>
 
+
       <KeyboardAvoidingView
         behavior={Platform.OS === "android" ? "padding" : "height"}
         style={styles.addRe}
       >
+        
         <TextInput 
           style={styles.input}
           placeholder={'Qual remédio vai tomar?'}
@@ -60,6 +65,9 @@ const deleteRe = (index) => {
       </KeyboardAvoidingView>
 
     </View>
+
+
+
   )
 
 }
