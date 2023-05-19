@@ -150,15 +150,20 @@ const styles = StyleSheet.create({
     button:{
         height: 50,
         borderRadius: 8,
-        alignContent:"center",
+        justifyContent:'center',
         alignItems:"center",
+
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
+        shadowRadius: 4,
+        elevation: 5,
     },
 
     buttonEnter:{
         color: '#fff',
         fontSize: 20,
         fontWeight: 700,
-        marginTop: 9,
     },
 
     

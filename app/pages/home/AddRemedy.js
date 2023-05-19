@@ -137,15 +137,8 @@ const styles = StyleSheet.create({
 
 
     pills:{
-        
         flexDirection: 'row'
         
-        
-    }
-
-    
-   
-
-    
+    },
     
 })

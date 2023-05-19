@@ -168,6 +168,12 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         alignContent:"center",
         alignItems:"center",
+        
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
+        shadowRadius: 4,
+        elevation: 5,
     },
     buttonEnter:{
         color: '#fff',
@@ -188,7 +194,12 @@ const styles = StyleSheet.create({
         alignItems:"center",
         justifyContent:"center",
         backgroundColor:"#fff",
-        flexDirection:"row"
+        flexDirection:"row",
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
+        shadowRadius: 4,
+        elevation: 5,
     },
     buttonEnterg:{
         fontSize: 16,
@@ -208,7 +219,12 @@ const styles = StyleSheet.create({
         alignItems:"center",
         justifyContent:"center",
         backgroundColor:"rgba(0, 63, 143, 1)",
-        flexDirection:"row"
+        flexDirection:"row",
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
+        shadowRadius: 4,
+        elevation: 5,
     },
     buttonEnterf:{
         color: '#fff',
