@@ -1,11 +1,11 @@
 import React from 'react';
-import {Text, View, StyleSheet,Image, TouchableOpacity, TextInput, SafeAreaView, ScrollView} from 'react-native'
-import { Stack, useRouter, Link } from 'expo-router'
+import {Text, View, StyleSheet,Image, TouchableOpacity, TextInput, SafeAreaView, ScrollView, VirtualizedList} from 'react-native'
+import { Stack } from 'expo-router'
 import { LinearGradient } from 'expo-linear-gradient';
 
 import back from "../../../assets/back.png"
 
-export default function CadNome(){
+export default function InsertEmail(){
 
     return (
 
@@ -22,9 +22,6 @@ export default function CadNome(){
                 <View style={styles.container}>
                     <ScrollView contentContainerStyle={{flexGrow: 1}}> 
             
-                        <View>
-
-                        
                         <View style={{marginTop: 20}}>
                             <TouchableOpacity style={{width:40}}>
                                 <Image source={back}/> 
@@ -32,30 +29,39 @@ export default function CadNome(){
                         </View>
             
                         <View style={{marginTop: 40, marginBottom:40}}>
-                            <Text style={styles.header_text}>Como podemos te{'\n'}chamar?</Text>
+                            <Text style={styles.header_text}>Insira seu endereço de{'\n'}email</Text>
                         </View>
             
-                        <Text style={styles.label}>Nome</Text>
-                        <View style={styles.input_container1}>
+                        <Text style={styles.label}>Email</Text>
+                        <View style={styles.input_container}>
                             <TextInput
-                            value=''
                             style={styles.input}
+                            placeholder='Insira seu email aqui...'
+                            placeholderTextColor={'rgba(255, 255, 255, 0.75)'}
                             />
-                        </View>
-                        <Text style={styles.label}>Sobrenome</Text>
-                        <View style={styles.input_container2}>
-                            <TextInput
-                            value=''
-                            style={styles.input}
-                            />
-                        </View>
                         </View>
 
-                        <TouchableOpacity style={{marginTop:25,height: 50, width:"100%", marginBottom:15,alignItems:'center',position:'absolute',bottom:0}}>
-                            <LinearGradient style={styles.button} colors={['#00B2FF', '#1F8EFB', '#3B6FF8']}>
+                        
+                        <View style={styles.containerp1}>
+                            <Text style={{color:'#fff'}}>Ao se registrar você está aceitando nossos</Text>
+
+                            <View style={{ flexDirection:'row'}}>
+                                <TouchableOpacity style={{borderBottomWidth:1, borderBottomColor:'#fff'}}>
+                                    <Text style={{color:'#fff'}}>Termos de Uso</Text>
+                                </TouchableOpacity>
+                                <Text style={{color:'#fff'}}> e </Text>
+                                <TouchableOpacity style={{borderBottomWidth:1, borderBottomColor:'#fff'}}>
+                                    <Text style={{color:'#fff'}}>Politicas de Privacidade</Text>
+                                </TouchableOpacity>
+                                <Text style={{color:'#fff'}}>.</Text>
+                            </View>
+                            
+                            <TouchableOpacity style={styles.buttonTouch}>
+                                <LinearGradient style={styles.button} colors={['#00B2FF', '#1F8EFB', '#3B6FF8']}>
                                     <Text style={styles.buttonEnter}>Continuar</Text>
-                            </LinearGradient>
-                        </TouchableOpacity>
+                                </LinearGradient>
+                            </TouchableOpacity>
+                        </View>
             
                     </ScrollView>
                 </View>
@@ -84,7 +90,7 @@ const styles = StyleSheet.create({
         marginBottom:10,
     },
 
-    input_container1:{
+    input_container:{
         borderColor: "rgba(0, 178, 255, 0.5)",
         borderWidth: 1,
         backgroundColor: "rgba(0, 178, 255, 0.1)",
@@ -92,34 +98,37 @@ const styles = StyleSheet.create({
         height: 50,
         alignItems:"center",
         marginBottom:16,
-    },
-
-    input_container2:{
-        borderColor: "rgba(0, 178, 255, 0.5)",
-        borderWidth: 1,
-        backgroundColor: "rgba(0, 178, 255, 0.1)",
-        borderRadius: 8,
-        height: 50,
-        alignItems:"center",
-        marginBottom:16,
-        marginBottom: 125
+        color:'#fff',
+        marginBottom:150
     },
 
     input:{
         color: '#fff',
         width:"90%",
-        height:"100%"
+        height:"100%",
+        
     },
 
+    containerp1:{
+        alignItems:'center',
+        position:'absolute',
+        bottom:0,
+        width:'100%',
+    },
 
+    buttonTouch:{
+        marginTop:25,
+        height: 50, 
+        width:"100%", 
+        marginBottom:15
+    },
 
     button:{
         height: 50,
         borderRadius: 8,
         justifyContent:'center',
         alignItems:"center",
-        width:"100%",
-        
+
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.2,

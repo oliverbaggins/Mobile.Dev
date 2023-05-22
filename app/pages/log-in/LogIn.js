@@ -1,11 +1,15 @@
 import React from 'react';
-
-import {Text, View, StyleSheet,Image, TouchableOpacity, TextInput, SafeAreaView} from 'react-native'
+import { Stack } from 'expo-router'
+import {Text, View, StyleSheet,Image, TouchableOpacity, TextInput, SafeAreaView, ScrollView} from 'react-native'
 
 import { LinearGradient } from 'expo-linear-gradient';
 
-import buttonLogin from "../../../assets/buttonlogin.png"
 import { useRouter } from 'expo-router';
+
+import back from "../../../assets/back.png"
+import olho from "../../../assets/olhosenha.png"
+import google from "../../../assets/google.png"
+import facebook from "../../../assets/facebook.png"
 
 export default function LogIn(){
 
@@ -15,75 +19,87 @@ export default function LogIn(){
         router.push('../home/AddRemedy')
     }
 
-    const [text, onChangeText] = React.useState('Insira seu email aqui...');
-    const [number, onChangeNumber] = React.useState('Insira sua senha aqui...');
-    
     return (
-        <LinearGradient colors={['#001242', '#123B6B', '#276697']}>
-        <View style={styles.container}>
-            
-            <Text style={styles.textEntrar}>Entrar</Text>
-            
-            <SafeAreaView >
 
-                <View>
-                    <Text style={styles.textMenu}>Email</Text>
+
+<SafeAreaView>
+            <Stack.Screen 
+                options={{
+                    headerShadowVisible: false,
+                    headerShown: false,
+                    headerTitle: ""
+                }}
+            />
+
+            <LinearGradient colors={['#001242', 'rgba(28, 181, 247, 0.7)']}>
+                <View style={styles.container}>
+                    <ScrollView contentContainerStyle={{flexGrow: 1}}> 
+            
+                        <View style={{marginTop: 20}}>
+                            <TouchableOpacity style={{width:40}}>
+                                <Image source={back}/> 
+                            </TouchableOpacity> 
+                        </View>
+            
+                        <View style={{marginTop: 40, marginBottom:40}}>
+                            <Text style={styles.header_text}>Entrar</Text>
+                        </View>
+            
+                        <Text style={styles.label}>Email</Text>
+                        <View style={styles.input_container}>
+                            <TextInput
+                            style={styles.input}
+                            placeholder='Insira seu email aqui...'
+                            placeholderTextColor={'rgba(255, 255, 255, 0.75)'}
+                            />
+                        </View>
+
+                        <Text style={styles.label}>Senha</Text>
+                        <View style={styles.input_container1}>
+                                <TextInput
+                                    style={styles.input}
+                                    placeholder='Insira sua senha aqui...'
+                                    placeholderTextColor={'rgba(255, 255, 255, 0.75)'}
+                                    />
+                                <TouchableOpacity style={{marginLeft:5}}>
+                                    <Image source={olho}/>
+                                </TouchableOpacity>
+                        </View>
+
+                        <TouchableOpacity style={styles.buttonTouch} onPress={handleNavigation}>
+                            <LinearGradient style={styles.button} colors={['#00B2FF', '#1F8EFB', '#3B6FF8']}>
+                                <Text style={styles.buttonEnter}>Entrar</Text>
+                            </LinearGradient>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={{alignItems:"center", marginTop:10}}>
+                            <Text style={{color:"#fff", fontSize:16, textDecorationLine:"underline"}}>Esqueceu sua senha?</Text>
+                        </TouchableOpacity>
+
+                        <View style={{alignItems:"center", marginTop:"17%"}}>
+                            <Text style={{color:"#fff", fontSize:14}}>Ou entre com</Text>
+                        </View>
+                        
+                        <TouchableOpacity style={styles.buttonTouchg}>
+                            <View style={styles.buttong}>
+                                <Image source={google} />
+                                <Text style={styles.buttonEnterg}>Entrar com Google</Text>
+                            </View>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={styles.buttonTouchf}>
+                            <View style={styles.buttonf}>
+                                <Image source={facebook} />
+                                <Text style={styles.buttonEnterf}>Entrar com Facebook</Text>
+                            </View>
+                        </TouchableOpacity>
+                        
+
+
+                    </ScrollView>
                 </View>
-
-                <View style={styles.inputsContainer}>
-                    <TextInput
-                        style={styles.input}
-                        onChangeText={onChangeText}
-                        value={text}
-                    />
-                </View>
-                
-                
-                <View>
-                    <Text style={styles.textMenu}>Senha</Text>
-                </View>
-
-                <View style={styles.inputsContainer}> 
-                    <TextInput
-                        style={styles.input}
-                        onChangeText={onChangeNumber}
-                        value={number}
-                        keyboardType="numeric"
-                    />
-                </View>
-                
-            </SafeAreaView>
-            
-            
-
-            <TouchableOpacity onPress={handleNavigation}>
-                <LinearGradient style={styles.button} colors={['#00B2FF', '#1F8EFB', '#3B6FF8']}>
-                        <Text style={styles.buttonEnter}>Entrar</Text>
-                </LinearGradient>
-            </TouchableOpacity>
-
-            <View >
-                <Text style={styles.textDontRememberPass}>Esqueceu sua senha?</Text>
-            </View>
-
-
-            <View >
-                <Text style={styles.textOrEnterWith}>Ou entre com</Text>
-                
-            </View>
-
-
-            <View >
-                <Image style={styles.image_logo} source={buttonLogin}/> 
-            </View>
-            
-
-            
-            
-        </View>
-
-        </LinearGradient>
-
+            </LinearGradient>
+        </SafeAreaView>
 
     
     )
@@ -91,83 +107,132 @@ export default function LogIn(){
 
 const styles = StyleSheet.create({
     container:{
-        //backgroundColor: '#001242',
-        with: '100%',
-        height: '100%'
-        
+        width:'100%',
+        height:'100%',
+        padding:20,
     },
 
-    textEntrar:{
+    header_text:{
         color: '#fff',
-        fontSize: 27,
+        fontSize: 24,
         fontWeight: 800,
-        marginBottom: 5
     },
 
-    textMenu:{
+    label:{
         color: '#fff',
-        fontSize: 20,
-        marginBottom: 10,
-        marginTop: 10
-        
+        fontSize: 16,
+        marginBottom:10,
     },
+
+    input_container:{
+        borderColor: "rgba(0, 178, 255, 0.5)",
+        borderWidth: 1,
+        backgroundColor: "rgba(0, 178, 255, 0.1)",
+        borderRadius: 8,
+        height: 50,
+        alignItems:"center",
+        marginBottom:16,
+        color:'#fff',
+    },
+
+    input_container1:{
+        borderColor: "rgba(0, 178, 255, 0.5)",
+        borderWidth: 1,
+        backgroundColor: "rgba(0, 178, 255, 0.1)",
+        borderRadius: 8,
+        height: 50,
+        alignItems:"center",
+        color:'#fff',
+        marginBottom:7,
+        flexDirection:'row',
+        paddingLeft:15,
+        paddingRight:10
+    },
+
 
     input:{
         color: '#fff',
-        paddingLeft: 15,
-        paddingTop: 8
-        
+        width:"90%",
+        height:"100%",
         
     },
 
-    inputsContainer:{
-        backgroundColor: '#0A376A',
-        width: '90%',
-        height: 50,
-        marginLeft: '5%', 
-        borderRadius: 8,
-        borderColor: '#00B2FF',
-        borderWidth: 1
-       
-
-        
-
+    buttonTouch:{
+        marginTop:25,
+        height: 50, 
+        width:"100%", 
+        marginBottom:15
     },
-
-    image_logo:{
-        marginTop: '5%',
-        marginLeft: '8%',
-    },
-
     button:{
-        width: '90%',
         height: 50,
-        marginLeft: '5%',
         borderRadius: 8,
-        marginTop: 30
+        alignContent:"center",
+        alignItems:"center",
         
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
+        shadowRadius: 4,
+        elevation: 5,
     },
-
     buttonEnter:{
         color: '#fff',
         fontSize: 20,
         fontWeight: 700,
-        marginLeft: '40%',
-        marginTop: 8,
+        marginTop: 9,
     },
 
-    textDontRememberPass:{
-        color: '#fff',
-        fontSize: 20,
-        marginTop: 30,
-        marginLeft: '25%'
+    buttonTouchg:{
+        marginTop:15,
+        height: 50, 
+        width:"100%", 
+        marginBottom:15,
+    },
+    buttong:{
+        height: 50,
+        borderRadius: 8,
+        alignItems:"center",
+        justifyContent:"center",
+        backgroundColor:"#fff",
+        flexDirection:"row",
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
+        shadowRadius: 4,
+        elevation: 5,
+    },
+    buttonEnterg:{
+        fontSize: 16,
+        marginLeft:18,
+        marginRight:24
     },
 
-    textOrEnterWith:{
+
+    buttonTouchf:{
+        height: 50, 
+        width:"100%", 
+        marginBottom:15,
+    },
+    buttonf:{
+        height: 50,
+        borderRadius: 8,
+        alignItems:"center",
+        justifyContent:"center",
+        backgroundColor:"rgba(0, 63, 143, 1)",
+        flexDirection:"row",
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
+        shadowRadius: 4,
+        elevation: 5,
+    },
+    buttonEnterf:{
         color: '#fff',
-        fontSize: 20,
-        marginTop: 80,
-        marginLeft: '35%'
-    }
+        fontSize: 16,
+        marginLeft:8,
+        marginRight:16
+    },
+
+
     
 })

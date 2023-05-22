@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Stack, useRouter, Link } from 'expo-router'
 import {Text, View, StyleSheet,Image, TouchableOpacity, TextInput, SafeAreaView, ScrollView} from 'react-native'
 
 import { LinearGradient } from 'expo-linear-gradient';
@@ -11,11 +11,16 @@ export default function Confirm(){
 
     return (
         
-        <SafeAreaView  style={styles.container_all}>
+        <SafeAreaView>
+            <Stack.Screen 
+                options={{
+                    headerShadowVisible: false,
+                    headerShown: false,
+                    headerTitle: ""
+                }}
+            />  
             <LinearGradient colors={['#001242', 'rgba(28, 181, 247, 0.7)']}>
                 <View style={styles.container}>
-
-                    <ScrollView > 
 
                         <View style={{marginTop: 20}}>
                             <TouchableOpacity style={{width:40}}>
@@ -41,8 +46,6 @@ export default function Confirm(){
                             </LinearGradient>
                         </TouchableOpacity>
 
-                    </ScrollView>
-
                 </View>
             </LinearGradient>
         </SafeAreaView>
@@ -50,10 +53,6 @@ export default function Confirm(){
 }
 
 const styles = StyleSheet.create({
-    container_all:{
-        minWidth:'100%',
-        minHeight:'100%',
-    },
 
     container:{
         width:'100%',
@@ -62,9 +61,9 @@ const styles = StyleSheet.create({
     },
 
     confirmimg:{
-        marginTop:40,
-        marginBottom:40,
+        justifyContent:'center',
         alignItems:'center',
+        marginTop:75,
     },
 
     header_text:{
@@ -88,17 +87,21 @@ const styles = StyleSheet.create({
     button:{
         height: 50,
         borderRadius: 8,
-        alignContent:"center",
+        justifyContent:'center',
         alignItems:"center",
         width:"100%",
         
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
+        shadowRadius: 4,
+        elevation: 5,
     },
 
     buttonEnter:{
         color: '#fff',
         fontSize: 20,
         fontWeight: 700,
-        marginTop: 9,
     },
     
 })
