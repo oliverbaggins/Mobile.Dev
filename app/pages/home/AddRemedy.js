@@ -9,6 +9,7 @@ import bannerTime from "../../../assets/bannerhorario.png"
 import relogio from "../../../assets/relogiocortado.png"
 import menu from "../../../assets/menu.png"
 import ScheduleList from './components/schedulelist'
+import Dias from './components/dia'
 //import { FlatList } from 'react-native-gesture-handler';
 
 
@@ -72,14 +73,15 @@ export default function AddRemedy(){
                         <View>
                                     
                             <View>
-                                <Text style={{fontWeight: 700, fontSize: 23, color:"#fff", marginTop:40}}>Seus horários</Text>
+                                <Text style={{fontWeight: 700, fontSize: 23, color:"#fff", marginTop:40, marginBottom:25}}>Seus horários</Text>
+                                
                             </View>
-
-                            <View style={styles.pills}> 
-
-                                {/* <ScheduleList
-                                /> */}
-
+                            <View style={{marginBottom:25}}>
+                                <Dias />
+                            </View>
+                            
+                            <View> 
+                                <ScheduleList/>
                             </View>
                         
                         </View>
@@ -135,10 +137,5 @@ const styles = StyleSheet.create({
         paddingRight:24
     },
 
-
-    pills:{
-        flexDirection: 'row'
-        
-    },
     
 })
