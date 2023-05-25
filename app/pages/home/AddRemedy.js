@@ -2,15 +2,12 @@ import React from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import {Text, View, StyleSheet,Image, TouchableOpacity, TextInput, SafeAreaView, ScrollView} from 'react-native'
 import { Stack, useRouter } from 'expo-router'
-//import { LinearGradient } from 'expo-linear-gradient';
 
 import logoperfil from "../../../assets/logoperfil.png"
-import bannerTime from "../../../assets/bannerhorario.png"
 import relogio from "../../../assets/relogiocortado.png"
 import menu from "../../../assets/menu.png"
 import ScheduleList from './components/schedulelist'
 import Dias from './components/dia'
-//import { FlatList } from 'react-native-gesture-handler';
 
 
 export default function AddRemedy(){
