@@ -1,14 +1,5 @@
-import React, {useState} from 'react';
-
-import {
-  FlatList,
-  SafeAreaView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-} from 'react-native';
-
+import React, { useState } from 'react';
+import { FlatList, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const DATA = [
   {
@@ -28,68 +19,98 @@ const DATA = [
   },
   {
     id: '4',
-    title: 'Cálcio',
-    time: '11:00'
+    title: 'Pracetamol',
+    time: '08:45'
   },
-  {
-    id: '5',
-    title: 'Ansiolítico',
-    time: '09:30'
-  },
-  
 ];
 
-const Item = ({item, onPress, backgroundColor, textColor}) => (
-  <TouchableOpacity onPress={onPress} style={[styles.item, {backgroundColor}]}>
-    <Text style={[styles.title, {color: textColor}]}>{[item.title, item.time]}</Text>
-  </TouchableOpacity>
-);
-
 const ScheduleList = () => {
-  const [selectedId, setSelectedId] = useState();
+  const [selectedId, setSelectedId] = useState(null);
+  const colors = ['#90F587', '#F587A2', '#EFC16C'];
+  const initialColorIndex = 0;
+  const [itemColors, setItemColors] = useState(
+    DATA.reduce((acc, item) => {
+      acc[item.id] = initialColorIndex;
+      return acc;
+    }, {})
+  );
 
-  const renderItem = ({item}) => {
-    const backgroundColor = item.id === selectedId ? '#1CB5F7' : '#BFE3F2';
-    const color = item.id === selectedId ? 'white' : 'black';
+  const renderItem = ({ item }) => {
+    const isSelected = item.id === selectedId;
+    const backgroundColor = colors[itemColors[item.id]];
+
+    const onPressItem = () => {
+      setSelectedId(isSelected ? null : item.id);
+      const nextColorIndex = (itemColors[item.id] + 1) % colors.length;
+      setItemColors((prevItemColors) => ({
+        ...prevItemColors,
+        [item.id]: nextColorIndex,
+      }));
+    };
 
     return (
-      <Item
-        item={item}
-        onPress={() => setSelectedId(item.id)}
-        backgroundColor={backgroundColor}
-        textColor={color}
-      />
+      <TouchableOpacity onPress={onPressItem} style={styles.item}>
+        <View style={styles.item1}>
+          <Text style={styles.title}>{item.title}</Text>
+          <Text style={styles.title}>{item.time}</Text>
+        </View>
+        <View style={[styles.item2, { backgroundColor }]} />
+      </TouchableOpacity>
     );
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <FlatList
         data={DATA}
         renderItem={renderItem}
         keyExtractor={item => item.id}
-        extraData={selectedId}
+        vertical
       />
-    </SafeAreaView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
+  container:{
   },
   item: {
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 1,
-    width: 370,
+    paddingLeft: 16,
+    marginVertical: 5,
     borderRadius: 10,
-    borderBottomRightRadius: 30
+    borderBottomRightRadius: 30,
+    height: 70,
+    flexDirection: 'row',
+    backgroundColor: 'rgba(36, 121, 175, 1)',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.08,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  item1: {
+    flex: 6,
+    borderBottomLeftRadius: 10,
+    borderTopLeftRadius: 10,
+    height: 70,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingRight: 5,
+  },
+  item2: {
+    borderTopRightRadius: 10,
+    borderBottomRightRadius: 30,
+    height: 70,
+    flex: 1,
+    backgroundColor: '#fff',
   },
   title: {
-    fontSize: 20,
-    fontWeight: 700
+    fontSize: 16,
+    fontWeight: '700',
   },
 });
 

@@ -10,6 +10,7 @@ import ConfirmPassword from './pages/confirm-password/index';
 import CriarLembrete from './pages/criar_lembrete/criar_lembrete';
 import Quase from './pages/quase/index';
 import Confirm from './pages/confirm';
+import Perfil from './pages/perfil';
 
 
 const Home = () => {
@@ -17,12 +18,13 @@ const Home = () => {
   return (
 
     <View>
-      <Start />
+      {/* <Start /> */}
 
       {/* <Confirm /> */}
       {/* <Quase /> */}
       {/* <InsertEmail /> */}
       {/* <CadNome /> */}
+      <Perfil />
       {/* <InsertPassword /> */}
       {/* <ConfirmPassword /> */}
       {/* <CriarLembrete /> */}
